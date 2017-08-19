@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>svgViewer/test/experiments/manual</title>
+</head>
+
+<body>
+
+  <p>svg.currentScale: <span id="scale">?</span></p>
+  <p>svg.currentTranslate: <span id="xlate">?</span></p>
+
+  <div>
+    <svg id='svg' width="800" height="500">
+      <rect width="300" height="200" fill="red" />
+      <circle cx="150" cy="100" r="80" fill="green" />
+      <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+    </svg>
+  </div>
+
+
+<script>
+const svg = document.getElementById('svg')
+const scaleEl = document.getElementById('scale')
+const xlateEl = document.getElementById('xlate')
+
+setInterval(onInterval, 1000)
+
+let scale = 1
+let xlateX = 0
+let xLateY = 0
+
+const scaleIncrBase = 1.2
+const xlateIncrBase = 50
+
+let scaleIncr = scaleIncrBase
+let xlateIncr = -xlateIncrBase
+
+let counter = 0
+function onInterval () {
+  if (counter >= 5) {
+    counter = 0
+    scaleIncr = scaleIncr > 1 ? 1/scaleIncrBase : scaleIncrBase
+    xlateIncr = xlateIncr > 0 ? -xlateIncrBase : xlateIncrBase
+  }
+  svg.currentTranslate.x += xlateIncr
+  svg.currentTranslate.y += xlateIncr
+  svg.currentScale *= scaleIncr
+
+  xlateEl.innerText = `{x:${svg.currentTranslate.x}, y:${svg.currentTranslate.y}}`
+  scaleEl.innerText = svg.currentScale
+  counter++
+}
+</script>
+
+</body>
+</html>
