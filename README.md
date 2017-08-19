@@ -1,4 +1,4 @@
-svgViewer - an HTML element providing a nice SVG viewer
+svgViewer - add pan and zoom behaviors to SVG elements
 ================================================================================
 
 adds the following behaviors to an SVG element, to allow pan and zoom:

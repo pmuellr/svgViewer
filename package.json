@@ -1,7 +1,7 @@
 {
   "name": "svgViewer",
   "version": "0.0.1",
-  "description": "ROws ANd COlumns for the web",
+  "description": "add pan and zoom behaviors to SVG elements",
   "license": "MIT",
   "author": "Patrick Mueller <pmuellr@apache.org> (https://github.com/pmuellr)",
   "homepage": "https://github.com/pmuellr/svgViewer",
